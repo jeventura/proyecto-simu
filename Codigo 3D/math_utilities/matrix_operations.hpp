@@ -88,7 +88,7 @@ void transpose(Matrix* M, int n, int m, Matrix* T){
             T->set(M->get(r,c),c,r);
 }
 
-void calculate_inverse(Matrix* M, int n, Matrix* R){
+void calculate_inverse_with_cholesky(Matrix* M, int n, Matrix* R){
     Matrix L(n,n), Y(n,n);
     float acum;
 

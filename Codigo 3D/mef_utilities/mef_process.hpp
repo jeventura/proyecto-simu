@@ -180,13 +180,13 @@ void solve_system(Matrix* K, Vector* b, Vector* T){
     Matrix Kinv(n,n);
 
     cout << "\tCalculating inverse of global matrix K...\n\n";
-    calculate_inverse(K, n, &Kinv);
+    calculate_inverse_with_cholesky(K, n, &Kinv);
 
     cout << "\tPerforming final calculation...\n\n";
     product_matrix_by_vector(&Kinv, b, n, n, T);
 }
 
-void merge_results_with_dirichlet(Vector* T, Vector* Tf, int n, Mesh* M){
+void mmerge_results_with_dirichlet(Vector* T, Vector* Tf, int n, Mesh* M){
     int num_dirichlet = M->get_quantity(NUM_DIRICHLET);
 
     int cont_dirichlet = 0;
